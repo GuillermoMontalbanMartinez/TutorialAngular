@@ -53,16 +53,16 @@ export const HEROES: Hero[] = [
     id: 17,
     name: 'Dyname',
     poder: [
-      { nombre: 'Superpower', tipo: 'x', valor: 1 },
-      { nombre: 'Superpower', tipo: 'x', valor: 2 },
+      { nombre: 'avalancha', tipo: 'piedra', valor: 30 },
+      { nombre: 'lanzallamas', tipo: 'fuego', valor: 8 },
     ],
   },
   {
     id: 18,
     name: 'Dr IQ',
     poder: [
-      { nombre: 'Superpower', tipo: 'x', valor: 1 },
-      { nombre: 'Superpower', tipo: 'x', valor: 2 },
+      { nombre: 'psiquico', tipo: 'siniestro', valor: 80 },
+      { nombre: 'bola sombra', tipo: 'siniestro', valor: 40 },
     ],
   },
   {
@@ -77,8 +77,8 @@ export const HEROES: Hero[] = [
     id: 20,
     name: 'Tornado',
     poder: [
-      { nombre: 'Superpower', tipo: 'x', valor: 1 },
-      { nombre: 'Superpower', tipo: 'x', valor: 2 },
+      { nombre: 'surfear', tipo: 'agua', valor: 5 },
+      { nombre: 'hidrobomba', tipo: 'agua', valor: 10 },
     ],
   },
 ];
