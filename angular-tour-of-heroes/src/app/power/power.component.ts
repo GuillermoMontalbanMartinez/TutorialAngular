@@ -7,12 +7,11 @@ import { Hero } from '../hero';
   styleUrls: ['./power.component.scss']
 })
 export class PowerComponent implements OnInit {
-
   @Input() hero?: Hero;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+
 }

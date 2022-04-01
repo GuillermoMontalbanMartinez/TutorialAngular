@@ -5,10 +5,30 @@
   <div>
     <label for="hero-name"> Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
-    <br>
+    <br/>
     <h2><label for="hero-poder"> Power of heroe</label></h2>
     <ul>
-      <li *ngFor="let power of hero.poder"> {{power.nombre}}</li>
+      <li *ngFor="let power of hero.poder">
+        Nombre del poder: {{ power.nombre }}, tipo de poder: {{ power.tipo }},
+        el daño es: {{ power.valor }}
+        <button type="button" (click)="removerPower(power)"> Borrar poder </button>
+      </li>
     </ul>
+
+    <form [formGroup]="formulario" (ngSubmit)="addPower()">
+      <h2> Añadir poder al heroe</h2>
+      <label> Introduce el nombre del poder: </label>
+      <input id="podername"  type="text" placeholder="name" formControlName="nombre" />
+      <br/>
+      <label> Introduce el tipo: </label>
+      <input id="podertipo" type="text" placeholder="tipo" formControlName="tipo"/>
+      <br/>
+      <label> Introduce el daño: </label>
+      <input id="poderdamage" type="text" placeholder="name" formControlName="valor"/>
+      <br/>
+      <button class="button" type="submit"> Agregar poder </button>
+    </form>
+
+
   </div>
 </div>
