@@ -5,5 +5,10 @@
   <div>
     <label for="hero-name"> Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
+    <br>
+    <h2><label for="hero-poder"> Power of heroe</label></h2>
+    <ul>
+      <li *ngFor="let power of hero.poder"> {{power.nombre}}</li>
+    </ul>
   </div>
 </div>

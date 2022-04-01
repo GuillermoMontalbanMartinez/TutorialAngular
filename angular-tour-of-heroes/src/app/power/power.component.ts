@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-power',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PowerComponent implements OnInit {
 
+  @Input() hero?: Hero;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
 }
