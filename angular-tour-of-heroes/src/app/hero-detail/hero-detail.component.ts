@@ -56,4 +56,10 @@ export class HeroDetailComponent implements OnInit {
   addPower() {
     this.hero?.poder.push(this.formulario.value);
   }
+
+  save(): void {
+    if(this.hero) {
+      this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+    }
+  }
 }
