@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PowerComponent } from './power/power.component'; // <-- NGModel lives here
 import { HttpClientModule } from '@angular/common/http';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     MessagesComponent,
     DashboardComponent,
     PowerComponent,
+    HeroSearchComponent,
   ],
   imports: [
     BrowserModule,
