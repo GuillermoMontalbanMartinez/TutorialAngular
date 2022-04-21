@@ -9,7 +9,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class HeroService {
-  private heroesUrl = 'http:/localhost:8080/api/heroes'; // URL to web api
+  private heroesUrl = 'http://localhost:8081/api/heroes'; // URL to web api
   constructor(
     private http: HttpClient,
     private messageService: MessageService
@@ -27,7 +27,8 @@ export class HeroService {
     );
   }
 
-  /** GET hero by id. Will 404 if id not found
+
+  /** GET hero by id. Will 404 if id not found */
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
@@ -35,11 +36,12 @@ export class HeroService {
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
   }
-  */
-  
+
+  /**
   getHero(): Observable<Hero> {
     return this.http.get<Hero>(this.heroesUrl)
   }
+  */
 
   /**
    * Handle Http operation that failed.
@@ -67,4 +69,5 @@ export class HeroService {
     return of(hero);
   }
   */
+
 }
