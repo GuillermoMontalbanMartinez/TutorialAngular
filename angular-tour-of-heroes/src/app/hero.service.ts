@@ -23,8 +23,9 @@ export class HeroService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
+  /** Borrar el heror por id */
   deleteHero(id: number) {
-    return this.http.delete(`${this.heroesUrl}?id=${id})`, this.httpOptions);
+    return this.http.delete(`${this.heroesUrl}?id=${id}`, this.httpOptions);
   }
 
   addHero(hero: Hero): Observable<Hero> {
@@ -34,13 +35,32 @@ export class HeroService {
     );
   }
 
-  /* GET heroes whose name contains search term */
+
+  /* GET heroes whose name contains search term
   searchHeroes(term: string): Observable<Hero[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
       return of([]);
     }
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+      tap((x) =>
+        x.length
+          ? this.log(`found heroes matching "${term}"`)
+          : this.log(`no heroes matching "${term}"`)
+      ),
+      catchError(this.handleError<Hero[]>('searchHeroes', []))
+    );
+  }
+  */
+
+  /* GET heroes whose name contains search term */
+  searchHeroes(term: string): Observable<Hero[]> {
+    const url = `http://localhost:8081/api/heroes`;
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Hero[]>(`${url}/${term}`).pipe(
       tap((x) =>
         x.length
           ? this.log(`found heroes matching "${term}"`)
@@ -66,12 +86,6 @@ export class HeroService {
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
   }
-
-  /**
-  getHero(): Observable<Hero> {
-    return this.http.get<Hero>(this.heroesUrl)
-  }
-  */
 
   /** PUT: update the hero on the server */
   updateHero(hero: Hero): Observable<any> {
@@ -99,11 +113,4 @@ export class HeroService {
       return of(result as T);
     };
   }
-  /**
-  getHero(id: Number): Observable<Hero> {
-    const hero = HEROES.find((h) => h.id === id)!;
-    this.messageService.add('HeroService : fetched hero id=$(id)');
-    return of(hero);
-  }
-  */
 }
