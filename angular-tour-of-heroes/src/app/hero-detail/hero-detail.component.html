@@ -15,6 +15,10 @@
       </li>
     </ul>
 
+    <div style="margin: 10px">
+      <img style="width: 200px; height: 200px" src="{{ hero.image }}" alt="" />
+    </div>
+
     <form [formGroup]="formulario" (ngSubmit)="addPower()">
       <h2> Añadir poder al heroe</h2>
       <label> Introduce el nombre del poder: </label>
